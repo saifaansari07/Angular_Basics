@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{sitename}}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+          <a class="nav-link" routerLink="" >Home</a> <!--fragment="header"-->
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="Product">Product</a>
+           <!-- <a class="nav-link" routerLink="" fragment="products">Product</a> -->
+        </li>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link" [routerLink]="'About'">About Us</a>
+          <!-- <a class="nav-link" routerLink="" fragment="about">About Us</a> -->
+        </li>
+         <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link" [routerLink]="['Contact']">Contact Us</a>
+           <!-- <a class="nav-link" routerLink="" fragment="contact">Contact Us</a> -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+

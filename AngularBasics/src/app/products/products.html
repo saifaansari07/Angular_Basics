@@ -1,0 +1,56 @@
+<!-- <div *ngFor="let item of [1,2,3,4,5]">
+    <p>Number is: {{item}}</p>
+</div> -->
+
+<!-- <div *ngFor="let pro of products">
+
+</div> -->
+
+<div>
+  <h1 style="text-align: center;">All Products</h1>
+  <app-searchproduct
+  (searchTextChanged)="onSearchTextEntered($event)"></app-searchproduct>
+  <app-filter [total]="getTotalProduct()"
+  [available]="getAvailableProduct()"
+  [notavailable]="getNotAvailableProduct()"
+  (filterRadioBtnSelectionChanged)="onFilterRadioBtnChange($event)">
+  </app-filter>
+</div>
+
+<div class="row">
+  <ng-container *ngFor="let p of products; let i=index">
+    <!-- *ngIf="productCountRadioBtn==='All' || productCountRadioBtn ===p.available" -->
+  <div class="col-md-3 mb-3" *ngIf="searchText==='' || p.name.toLowerCase().includes(searchText)">
+    <div class="card h-100" [ngStyle]="{backgroundColor: p.available==='Available'?'antiquewhite':'azure'}">
+      <img [src]="p.image" class="card-img-top product-img" alt="{{ p.name }}">
+
+      <div class="card-body d-flex flex-column">
+        <!-- <p class="card-title">{{ i}}</p>  -->
+        <p class="card-title">{{ p.name }}</p>
+        <p class="card-title" [ngStyle]="{color:p.available==='Available'?'green':'red'}">{{ p.available }}</p>
+        <p class="card-text">Price: <b>{{ p.price }}</b></p>
+        <p class="card-title">Color: <b>{{ p.color }}</b></p>
+
+        <!-- Buttons only -->
+        <div class="mt-auto d-flex gap-2">
+          <button class="btn btn-outline-primary btn-sm w-50" routerLink="/Product/Singleproduct/{{p.id}}">
+            Show Details
+          </button>
+
+          <button class="btn btn-success btn-sm w-50" *ngIf="p.available==='Available'; else notifyme">
+            Buy Now
+          </button>
+
+          <ng-template #notifyme>
+             <button class="btn btn-danger btn-sm w-50" >
+            Notify Me
+          </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <router-outlet></router-outlet>
+</div>
+

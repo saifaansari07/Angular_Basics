@@ -1,0 +1,5 @@
+.product-img {
+  width: 50%;
+  height: 350px;          /* same height for all */
+  object-fit: cover;     /* crop without distortion */
+}

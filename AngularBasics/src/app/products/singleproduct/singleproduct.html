@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+
+        <div class="card shadow">
+          <img
+            src="{{product.image}}"
+            class="card-img-top"
+            alt="Pure Cotton Embroidered Kurta Set"
+          />
+
+          <div class="card-body">
+            <h4 class="card-title" *ngIf="!editmode">
+              {{product.name}}
+            </h4>
+            <div *ngIf="editmode">
+                <input type="text" style="width: 100%;
+    padding: 6px;
+    border: 2px solid black;
+    margin-bottom: 6px;" [(ngModel)]="product.name">
+            </div>
+            <p class="mb-1">
+              <strong>Color:</strong> {{product.color}}
+            </p>
+
+            <p class="mb-1">
+              <strong>Status:</strong>
+              <span class="text-success">{{product.available}}</span>
+            </p>
+
+            <h3 class="text-danger mt-3">{{product.price}}</h3>
+
+            <div class="d-flex gap-2 mt-4">
+              <button class="btn btn-primary w-100">
+                Add to Cart
+              </button>
+              <button class="btn btn-outline-secondary w-100">
+                Back
+              </button>
+              <!-- <button class="btn btn-info w-100" [routerLink]="['/Product/Singleproduct','product.id']" [queryParams]="{edit:true}"> -->
+                <button class="btn btn-info w-100" (click)="onEditBtn()">
+                Edit
+              </button>
+              <button class="btn btn-danger w-100" (click)="editmode=false" [routerLink]="['Product/Singleproduct',product.id]">
+                Update
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+   
+  </div>
+

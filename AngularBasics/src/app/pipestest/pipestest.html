@@ -1,0 +1,33 @@
+
+<div class="container">
+    <h3>Student Details</h3>
+<div>
+    <input type="text" placeholder="search by text" 
+style="width: 100%; padding: 10px; margin-bottom: 20px;" [(ngModel)]="filtertext"/>
+</div>
+<table class="table table-bordered">
+  <thead class="table-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Course</th>
+      <th scope="col">Marks</th>
+      <th scope="col">Percantage</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Currency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let std of students | filterpipe:filtertext">
+      <th>{{std.name}}</th>
+      <td>{{std.course}}</td>
+      <td>{{std.marks}}</td>
+      <!-- <td>{{std.marks/totalMarks | percent :'1.2-3'}}</td> -->
+      <td>{{std.marks | percentage: totalMarks : 3}}</td>
+      <td>{{std.DOB | date: 'mediumDate' |uppercase}}</td>
+      <td>{{std.gender}}</td>
+      <td>{{12 | currency: 'USD'}}</td>
+    </tr>
+    </tbody>
+    </table>
+</div>

@@ -1,0 +1,7 @@
+
+<div class="search-div" [ngClass]="{changebg:searchvalue!=''}">
+    <span><b>Search:</b></span>
+    <!-- <input type="text"  (input)="getvalue($event)"/>  --> <!--one-way data binding-->
+    <input type="text" [(ngModel)]="searchvalue"> <!--two-way data binding-->
+    <span *ngIf="searchvalue!=''">You searched for : {{searchvalue}}</span>
+</div>
