@@ -1,0 +1,135 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Registration Form</h4>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="onSubmit()" #myform="ngForm">
+                        <div ngModelGroup="personalDetails" #personal="ngModelGroup">
+                        <div>
+                            <span *ngIf="personal.invalid && personal.touched">Some of the required fields does not have valid value.</span>
+                        </div>
+                        <button class="btn btn-info m-2" (click)="setDefautlValues()">Set Default value</button>
+
+                        <!-- First Name -->
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <!-- <span *ngIf="fname.invalid && fname.touched"> *First Name is required</span> -->
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter first name" 
+                            name="firstName" ngModel required #fname="ngModel">
+                            <!-- <label for="" *ngIf="firstname">{{firstname}}</label> -->
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <!-- <span *ngIf="lname.invalid && lname.touched"> *Last Name is required</span> -->
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter last name" 
+                            name="lastName" ngModel required #lname="ngModel">
+                            <!-- <label for="" *ngIf="lastname">{{lastname}}</label> -->
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <!-- <span *ngIf="email.invalid && email.touched"> *Email ID is Required</span> -->
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required email ngModel> <!--#email="ngModel" -->
+                        </div>
+                        </div>
+
+                        <!-- Country Dropdown -->
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <select class="form-select" id="country" name="country" ngModel>
+                                <option value="">Select your country</option>
+                                <option value="US">United States</option>
+                                <option value="CA">Canada</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="IN">India</option>
+                                <option value="AU">Australia</option>
+                                <option value="DE">Germany</option>
+                                <option value="FR">France</option>
+                                <option value="JP">Japan</option>
+                                <option value="CN">China</option>
+                                <option value="BR">Brazil</option>
+                            </select>
+                        </div>
+
+                        <!-- Gender Radio -->
+                        <label class="form-label d-block">Gender</label>
+                        <div class="form-check form-check-inline" *ngFor="let g of gender">
+                            <input class="form-check-input" type="radio" id="{{g.id}}" value="{{g.value}}" name="gender" ngModel>
+                            <label class="form-check-label">{{g.value}}</label>
+                        </div>
+
+                        <!-- Hobbies Checkbox -->
+                        <label class="form-label d-block mt-3">Hobbies(Optional)</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="sports" value="Sports" name="hobbies" ngModel>
+                            <label class="form-check-label" for="sports">Sports</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="movies" value="Movies" name="hobbies" ngModel>
+                            <label class="form-check-label" for="movies">Movies</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="music" value="Music" name="hobbies" ngModel>
+                            <label class="form-check-label" for="music">Music</label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary" value="submit">Register</button> <!--[disabled]="!myform.valid"-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+<!-- User Information  -->
+<div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary text-white text-center">
+            <h4>User Information</h4>
+          </div>
+          <div class="card-body">
+            <div class="row mb-2">
+              <div class="col-5 fw-bold">First Name:</div>
+              <div class="col-7">{{firstname}}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-5 fw-bold">Last Name:</div>
+              <div class="col-7">{{lastname}}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-5 fw-bold">Email:</div>
+              <div class="col-7">{{email}}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-5 fw-bold">Country:</div>
+              <div class="col-7">{{country}}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-5 fw-bold">Gender:</div>
+              <div class="col-7">{{gen}}</div>
+            </div>
+            <div class="row mb-2">
+              <div class="col-5 fw-bold">Hobbies:</div>
+              <div class="col-7">
+                <span *ngFor="let hob of selectedhobbies">{{hob}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

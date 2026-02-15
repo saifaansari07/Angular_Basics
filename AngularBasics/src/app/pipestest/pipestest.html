@@ -1,11 +1,12 @@
 
 <div class="container">
     <h3>Student Details</h3>
+    <h4>Total Student : {{totalStudent | async }}</h4>
 <div>
     <input type="text" placeholder="search by text" 
 style="width: 100%; padding: 10px; margin-bottom: 20px;" [(ngModel)]="filtertext"/>
 </div>
-<table class="table table-bordered">
+<table class="table table-bordered" (mouseover)="MouseOver()">
   <thead class="table-light">
     <tr>
       <th scope="col">Name</th>
@@ -18,10 +19,12 @@ style="width: 100%; padding: 10px; margin-bottom: 20px;" [(ngModel)]="filtertext
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let std of students | filterpipe:filtertext">
+    <!-- <tr *ngFor="let std of students | filterpipe:filtertext"> -->
+      <tr *ngFor="let std of filteredStudent">
       <th>{{std.name}}</th>
       <td>{{std.course}}</td>
-      <td>{{std.marks}}</td>
+      <!-- <td>{{std.marks}}</td> -->
+      <td><input type="number" value="std.marks" [(ngModel)]="std.marks"/></td>
       <!-- <td>{{std.marks/totalMarks | percent :'1.2-3'}}</td> -->
       <td>{{std.marks | percentage: totalMarks : 3}}</td>
       <td>{{std.DOB | date: 'mediumDate' |uppercase}}</td>
@@ -30,4 +33,6 @@ style="width: 100%; padding: 10px; margin-bottom: 20px;" [(ngModel)]="filtertext
     </tr>
     </tbody>
     </table>
+    <button class="btn btn-primary" (click)="addStudent()">Add Student</button>
+    <button class="btn btn-info m-2" (click)="changeGender()">Change Gender</button>
 </div>

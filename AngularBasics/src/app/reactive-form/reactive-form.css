@@ -1,0 +1,23 @@
+
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+
+span{
+color: red;
+}
+
+.myform.INVALID{
+    border: red solid 1px;
+    box-shadow: 0 0 31px rgba(255, 0, 0, 0.7);
+}
+
+.myform.PENDING{
+    border: #f6de0b 1px solid;
+    box-shadow: 0 0 31px rgba(255, 235, 0, 0.7);
+}
+
+.myform.VALID{
+    border: #2ee536 1px solid;
+    box-shadow: 0 0 31px rgba(78, 233, 84, 0.7);
+}

@@ -8,7 +8,7 @@ import { Nav } from './nav/nav';
 import { Header } from './header/header';
 import { Notification } from './notification/notification';
 import { Search } from './search/search';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Products } from './products/products';
 import { Searchproduct } from './searchproduct/searchproduct';
 import { Filter } from './filter/filter';
@@ -32,6 +32,8 @@ import { Singleproduct } from './products/singleproduct/singleproduct';
 import { Pipestest } from './pipestest/pipestest';
 import { PercentagePipe } from './percentage-pipe';
 import { FilterpipePipe } from './filterpipe-pipe';
+import { TemplateDrivenForm } from './template-driven-form/template-driven-form';
+import { ReactiveForm } from './reactive-form/reactive-form';
 
 const approute:Routes=[
   // {path:'',redirectTo:'home',pathMatch:'full'},
@@ -69,13 +71,14 @@ const approute:Routes=[
     About,
     Contact,
     Errorpage,   
-    Home, Singleproduct, Pipestest, PercentagePipe, FilterpipePipe
+    Home, Singleproduct, Pipestest, PercentagePipe, FilterpipePipe, TemplateDrivenForm, ReactiveForm
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     SetBackgroundDirective,
+    ReactiveFormsModule,
     RouterModule.forRoot(approute)
   ],
   providers: [
